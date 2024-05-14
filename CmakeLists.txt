@@ -20,6 +20,9 @@ include_directories(include)
 
 set(SOURCES 
   src/main.cpp
+  src/Ball.cpp
+  src/Game.cpp
+  src/Platform.cpp
 )
 
 add_executable(Arkanoid ${SOURCES})
@@ -33,5 +36,23 @@ if(WIN32)
         PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${SFML_SOURCE_DIR}/extlibs/bin/$<IF:$<EQUAL:${CMAKE_SIZEOF_VOID_P},8>,x64,x86>/openal32.dll $<TARGET_FILE_DIR:Arkanoid>
         VERBATIM)
 endif()
+
+configure_file(
+  ${CMAKE_SOURCE_DIR}/config/settings.json
+  ${CMAKE_BINARY_DIR}/config/settings.json COPYONLY
+  
+)
+
+configure_file(
+  ${CMAKE_SOURCE_DIR}/levels/level1.json
+  ${CMAKE_BINARY_DIR}/levels/level1.json COPYONLY
+
+)
+
+configure_file(
+  ${CMAKE_SOURCE_DIR}/resources/FormaDJRCyrillicText-Regular-Testing.ttf
+  ${CMAKE_BINARY_DIR}/resources/FormaDJRCyrillicText-Regular-Testing.ttf COPYONLY
+
+)
 
 install(TARGETS Arkanoid)

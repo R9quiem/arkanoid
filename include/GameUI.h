@@ -11,7 +11,7 @@ class GameUI {
 public:
     GameUI(GameState& gameState) : gameState(gameState) {
 
-        font.loadFromFile("C:\\dev\\fonts\\FormaDJRCyrillicText-Regular-Testing.ttf");
+        font.loadFromFile("../resources/FormaDJRCyrillicText-Regular-Testing.ttf");
 
         scoreText.setFont(font);
         scoreText.setCharacterSize(24);
