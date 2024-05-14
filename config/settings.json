@@ -1,0 +1,26 @@
+{
+  "window": {
+    "width": 600,
+    "height": 400,
+    "framerate": 60,
+    "title": "Arkanoid"
+  },
+  "platform": {
+    "width": 100,
+    "height": 10,
+    "speed": 20
+  },
+  "ball": {
+    "speed": 4,
+    "radius": 7
+  },
+  "blocks": {
+    "spacing": 4,
+    "startX": 40,
+    "startY": 50,
+    "block": {
+      "width": 24,
+      "height": 8
+    }
+  }
+}
