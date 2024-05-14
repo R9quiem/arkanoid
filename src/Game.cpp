@@ -91,7 +91,7 @@ void Game::createBlock(int type, sf::Vector2f blockPosition) {
 
   if (type > 4 || type < 0) return;
 
-  std::ifstream file("settings.json");
+  std::ifstream file("config/settings.json");
   json settings;
   file >> settings;
 
@@ -106,7 +106,7 @@ void Game::createBlock(int type, sf::Vector2f blockPosition) {
 
 void Game::setBlocks(int level) {
 
-  std::ifstream file("settings.json");
+  std::ifstream file("config/settings.json");
   json settings;
   file >> settings;
 
@@ -122,13 +122,13 @@ void Game::setBlocks(int level) {
   std::mt19937 gen(rd());
   std::uniform_int_distribution<int> distrib(0, 3); 
 
-  std::ifstream levels("Levels.json");
+  std::ifstream levels("levels/level1.json");
   json tilemapData;
   levels >> tilemapData;
 
-  auto tiles = tilemapData["level1"]["tiles"];
-  int width = tilemapData["level1"]["width"];
-  int height = tilemapData["level1"]["height"];
+  auto tiles = tilemapData["tiles"];
+  int width = tilemapData["width"];
+  int height = tilemapData["height"];
 
   for (int y = 0; y < height; ++y) {
     for (int x = 0; x < width; ++x) {
@@ -145,7 +145,7 @@ void Game::setBlocks(int level) {
 };
 
 void Game::init() {
-  std::ifstream file("settings.json");
+  std::ifstream file("config/settings.json");
   json settings;
   file >> settings;
 
