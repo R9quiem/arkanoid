@@ -16,16 +16,13 @@ FetchContent_Declare(json
     GIT_TAG v3.11.2)
 FetchContent_MakeAvailable(json)
 
+include_directories(include)
+
 set(SOURCES 
   src/main.cpp
 )
 
-set(HEADERS
-  include/Entity.h
-
-)
-
-add_executable(Arkanoid ${SOURCES} ${HEADERS})
+add_executable(Arkanoid ${SOURCES})
 target_link_libraries(Arkanoid PRIVATE sfml-graphics nlohmann_json::nlohmann_json)
 target_compile_features(Arkanoid PRIVATE cxx_std_17)
 
